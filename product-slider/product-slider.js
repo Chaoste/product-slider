@@ -158,7 +158,7 @@ $.widget('nmk.productSlider', {
       // The url of an image (used for the preview)
       const url = imgElem.attr('src')
       // Collect the description text
-      const description = undefined
+      let description = undefined
       if (descElem.length !== 0) {
         description = descElem.html()
       } else if (contentElem.prop('tagName') === 'A') {
