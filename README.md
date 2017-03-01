@@ -23,12 +23,14 @@ You can also download the code with the following link:
 
 ##### Example using jsDelivr
 
-Just add a link to the css file in your `<head>`:
+Just add a link to the css file in your `<head>`
+
 ```html
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.product-slider/0.1.0/product-slider.min.css"/>
 ```
 
-Then, before your closing ```<body>``` tag add:
+Then, before your closing `<body>` tag add
+
 ```html
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.js"></script>
@@ -76,6 +78,26 @@ To transform this into a product-slider, you have to call the JQuery plugin on t
 $('#my-slider').productSlider()
 ```
 
+### Custom elements
+
+If you want to change the preview element, you can rewrite the input code like this:
+
+```html
+<div id="my-advanced-slider">
+  <div>
+    <a class="content" href="https://product-webpage.com"><img src="1.jpg"></img></a>
+    <span><a href="https://product-webpage.com">Artist 1 - Song 1</a></span>
+  </div>
+  <!-- ... -->
+```
+
+In this case we want to add a link to the preview image and its description block.
+If you add outer tags to the preview image, you have to add the class "content", so
+the product-slider recognizes your element.
+
+For editing he description you can only change the content within the `<span>` element.
+
+
 ### Settings
 
 Option | Type | Default | Description
@@ -115,7 +137,8 @@ onNavChanged | event (null or onClick event), { old product, new product } | The
 ```javascript
 $('#my-slider').productSlider({
   animationTime: 200,
-  onNavChanged: (before, current) => {
+  onNavChanged: (event, payload) => {
+    const { before, current } = payload
     console.info(`The shown product changed from ${before.id} to ${current.id}`)
   }
 })
@@ -137,6 +160,8 @@ Copyright (c) 2017 Thomas Kellermeier
 Licensed under the MIT license.
 
 
+
+### Memo to myself
 
 Next steps after the first version is developed:
 1. Offer a minified version (http://javascript-minifier.com/, http://cssminifier.com/)
