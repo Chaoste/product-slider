@@ -168,7 +168,7 @@ $.widget('nmk.productSlider', {
       } else {
         description = imgElem.attr('src').replace(/(.*)\.(.*?)$/, '$1')
       }
-      this.props.products.push({ id, url, contentElem, description })
+      this.props.products.push({ id, url, content: contentElem, description })
     })
   },
 
