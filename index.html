@@ -1,21 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Product Slider</title>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/product-slider-demo.css" rel="stylesheet">
-  </head>
-  <body>
-    <h1>Product Slider</h1>
-    <!-- Bootstrap Design Template http://v4-alpha.getbootstrap.com/examples/carousel/-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Product Slider - Demo</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+  <!-- CSS scripts -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="demo.css" />
+  <link rel="stylesheet" href="product-slider/product-slider.css" />
+  <!-- Bootstrap Design Template http://v4-alpha.getbootstrap.com/examples/carousel/-->
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="row">
+    			<div class="site-navigation-inner col-sm-12">
+    				<div class="navbar-header">
+    					<button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+    						<span class="sr-only">Toggle navigation</span>
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    						<span class="icon-bar"></span>
+    					</button>
+    					<div id="logo">
+    						<a href="/">
+                  <img src="http://lavioletterecords.com/wordpress/wp-content/uploads/2016/12/shapeimage_3.png" height="98" width="148" alt="La Violette Records">
+                </a>
+    					</div>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul id="menu-hauptmenue" class="nav navbar-nav">
+                <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-36 current_page_item menu-item-39 active"><a title="Home" href="/">Home</a></li>
+                <li id="menu-item-53" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-53"><a title="Produkte" href="/">Produkte</a></li>
+                <li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a title="News" href="/">News</a></li>
+                <li id="menu-item-27" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-27"><a title="Künstler" href="/">Künstler</a></li>
+              </ul>
+            </div>
+          </div>
+    		</div>
+      </div>
+    </nav>
+  </header>
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-10">
+          <div class="product-slider">
+            <div>
+              <a class="content" href="www.google.de"><img src="images/con anima - Die Geburt Jesu.jpg"></img></a>
+              <span><a href="https://www.ebay.com">con anima - Die Geburt Jesu</a></span>
+            </div>
+            <div>
+              <img src="images/con anima - Die Leiden Jesu.jpg"></img>
+              <span>con anima - Die Leiden Jeus</span>
+            </div>
+            <div>
+              <img src="images/con anima - Gelobet seist du.jpg"></img>
+              <span>con anima - Gelobet seist du</span>
+            </div>
+            <div>
+              <img src="images/MTS - Stammtisch.gif"></img>
+              <span>MTS - Stammtisch</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">&nbsp;</div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Load javascript dependencies -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/product-slider-demo.js"></script>
-  </body>
+  <!-- JS scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="product-slider/product-slider.js"></script>
+  <script>$('.product-slider').productSlider()</script>
+</body>
 </html>
