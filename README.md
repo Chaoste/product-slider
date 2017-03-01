@@ -54,20 +54,13 @@ To define the content of the slides, you can write it down as a short HTML snipp
 ```html
 <div id="my-slider">
   <div>
-    <img src="1.jpg"></img>
-    <span>Artist 1 - Song 1</span>
+    <img src="Artist 1 - Song 1.jpg"></img>
   </div>
   <div>
-    <img src="2.png"></img>
-    <span>Artist 1 - Song 2</span>
+    <img src="Artist 1 - Song 2.png"></img>
   </div>
   <div>
-    <img src="3.jpeg"></img>
-    <span>Artist 2 - Song 1</span>
-  </div>
-  <div>
-    <img src="4.gif"></img>
-    <span>Artist 3 - Song 1</span>
+    <img src="Artist 2 - Song 1.jpeg"></img>
   </div>
 </div>
 ```
@@ -85,8 +78,9 @@ If you want to change the preview element, you can rewrite the input code like t
 ```html
 <div id="my-advanced-slider">
   <div>
-    <a class="content" href="https://product-webpage.com"><img src="1.jpg"></img></a>
-    <span><a href="https://product-webpage.com">Artist 1 - Song 1</a></span>
+    <a class="content" href="https://product-webpage.com">
+      <img src="Artist 1 - Song 1.jpg"></img>
+    </a>
   </div>
   <!-- ... -->
 ```
@@ -97,6 +91,23 @@ the product-slider recognizes your element.
 
 For editing he description you can only change the content within the `<span>` element.
 
+It's also possible, to split up the logic of the description element and the product preview.
+
+
+```html
+<div id="my-advanced-slider-2">
+  <div>
+    <a class="content" href="https://product-webpage.com">
+      <img src="picture.jpg"></img>
+    </a>
+    <span class="description">
+      <a href="https://product-webpage.com">
+        Artist 1 - Song 1
+      </a>
+    </span>
+  </div>
+  <!-- ... -->
+```
 
 ### Settings
 
@@ -106,7 +117,7 @@ previewHeight | int [px] | 450 | Height of the upper preview container
 slideWidth | int [px] | 300 | Width of the centered product covers
 navbarHeight | int [px] | 150 | Height of the navigation bar
 animationTime | int [ms] | 400 | Transition time for almost all css changes
-stillstandingTime | int [ms] | 3000 | Waiting time until the next slide is shown
+autoplay | int [ms] | 3000 | Waiting time until the next slide is shown (value <= 0 -> Disable autoplay)
 stopOnMouseHover | boolean | true | If the mouse is on the upper container the carousel stops
 delayOnClick | int [ms] | 2000 | After manually selecting a product wait an additional time, until the carousel goes on
 
@@ -131,8 +142,8 @@ _Note that this will recreate all DOM elements of the product-slider._
 
 Event | Parameters | Description
 ------ | ------- | -----------
-onInitialized | event (null), intern hold information of all products | Slider is rebuilt (after creating or updating)
-onNavChanged | event (null or onClick event), { old product, new product } | The shown product changed (caused by any case)
+onInitialized | event (null), \n intern hold information of all products | Slider is rebuilt (after creating or updating)
+onNavChanged | event (null or onClick event), \n { old product, new product } | The shown product changed (caused by any case)
 
 ```javascript
 $('#my-slider').productSlider({
