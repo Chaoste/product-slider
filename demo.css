@@ -1,7 +1,19 @@
-header {
-  margin-bottom: 100px;
+body {
+  padding-top: 2rem;
 }
 
-#content {
-  padding-top: 20px;
+.container {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+#preview {
+  padding-top: 2rem;
+}
+
+#docs {
+  text-align : center;
+  background: #CCC;
+  width: 100%;
+  padding-bottom: 3rem;
 }

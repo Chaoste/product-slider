@@ -200,7 +200,7 @@ $.widget('nmk.productSlider', {
     const transitionTime = (this.options.animationTime / 1000).toFixed(2)
     const colSize = Math.floor(12 / this.props.products.length)
     this.props.products.forEach((productInfo, i) => {
-      const sliderInfo = this._createDiv(`slide-info col-xs-${colSize}`).attr('id', i)
+      const sliderInfo = this._createDiv(`slide-info col-${colSize}`).attr('id', i)
       const aLink = $(document.createElement('a'))
         .attr('href', '#')
         .attr('id', `slide-link-${i}`)
