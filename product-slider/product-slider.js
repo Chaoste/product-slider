@@ -19,7 +19,7 @@ $.widget('nmk.productSlider', {
     slideWidth: 300,  // [px]
     navbarHeight: 150,  // [px]
     animationTime: 400,  // [ms]
-    stillstandingTime: 3000,  // [ms]
+    autoplay: 3000,  // [ms]
     stopOnMouseHover: true,
     delayOnClick: 2000,
   },
@@ -36,7 +36,6 @@ $.widget('nmk.productSlider', {
 
   _create: function() {
     this._update()
-    this._startCarousel()
     // Stop carousel as long as the mouse is on the slider (if option is enabled)
     this.props.sliderContainer.on('mouseenter', () => {
       if (this.options.stopOnMouseHover) {
@@ -51,6 +50,9 @@ $.widget('nmk.productSlider', {
   },
 
   _startCarousel: function(additionalDelay = 0) {
+    if (this.props.autoplay <= 0) {
+      return
+    }
     if (this.props.carouselTimer !== undefined) {
       this._stopCarousel()
     }
@@ -60,7 +62,7 @@ $.widget('nmk.productSlider', {
       this._deactivateNavElement(this.props.selected)
       this._activateNavElement(next)
       this._startCarousel()
-    }, this.options.stillstandingTime + additionalDelay)
+    }, this.options.autoplay + additionalDelay)
   },
 
   _stopCarousel: function() {
@@ -68,7 +70,7 @@ $.widget('nmk.productSlider', {
   },
 
   _setOption: function(key, value) {
-    this.properties[key] = value
+    this.options[key] = value
     this._update()
   },
 
@@ -87,6 +89,7 @@ $.widget('nmk.productSlider', {
     // Activate the first nav element
     this._activateNavElement(0)
     this._trigger('onInitialized', null, Object.assign({}, this.props.products))
+    this._startCarousel()
   },
 
   _get_selected_product: function() {
@@ -144,13 +147,28 @@ $.widget('nmk.productSlider', {
   _collectProducts: function() {
     this.props.products = []
     this.element.find('> div').each((id, c) => {
-      let content = $(c).find('.content').first()
-      if (content.length === 0) {
-        content = $(c).find('img').first()
+      // Collect all required DOM elements
+      let contentElem = $(c).find('.content').first()
+      const imgElem = $(c).find('img').first()
+      const descElem = $(c).find('span').first()
+      // If no custom content is defined, just use the image
+      if (contentElem.length === 0) {
+        contentElem = imgElem
       }
-      const url = $(c).find('img').first().attr('src')
-      const description = $(c).find('span').first().html()
-      this.props.products.push({ id, url, content, description })
+      // The url of an image (used for the preview)
+      const url = imgElem.attr('src')
+      // Collect the description text
+      const description = undefined
+      if (descElem.length !== 0) {
+        description = descElem.html()
+      } else if (contentElem.prop('tagName') === 'A') {
+        const link = contentElem.attr('href')
+        const text = imgElem.attr('src').replace(/(.*)\.(.*?)$/, '$1')
+        description = `<a href="${link}">${text}</a>`
+      } else {
+        description = imgElem.attr('src').replace(/(.*)\.(.*?)$/, '$1')
+      }
+      this.props.products.push({ id, url, contentElem, description })
     })
   },
 
@@ -180,8 +198,9 @@ $.widget('nmk.productSlider', {
     this.props.sliderBar = this._createDiv('slider-bar row')
       .css('height', this.options.navbarHeight)
     const transitionTime = (this.options.animationTime / 1000).toFixed(2)
+    const colSize = Math.floor(12 / this.props.products.length)
     this.props.products.forEach((productInfo, i) => {
-      const sliderInfo = this._createDiv('slide-info col-xs-3').attr('id', i)
+      const sliderInfo = this._createDiv(`slide-info col-xs-${colSize}`).attr('id', i)
       const aLink = $(document.createElement('a'))
         .attr('href', '#')
         .attr('id', `slide-link-${i}`)
