@@ -21,6 +21,7 @@ $.widget('nmk.productSlider', {
     animationTime: 400,  // [ms]
     stillstandingTime: 3000,  // [ms]
     stopOnMouseHover: true,
+    delayOnClick: 2000,
   },
   // Intern used variables
   props: {
@@ -83,9 +84,16 @@ $.widget('nmk.productSlider', {
       const c = event.currentTarget
       this._handleNavClick(event, c)
     })
-    this._trigger('onInitialized', null, Object.assign({}, this.props.products))
     // Activate the first nav element
     this._activateNavElement(0)
+    this._trigger('onInitialized', null, Object.assign({}, this.props.products))
+  },
+
+  _get_selected_product: function() {
+    if (this.props.selected === undefined) {
+      return undefined
+    }
+    return this.props.products[this.props.selected]
   },
 
   _handleNavClick: function(event, el) {
@@ -93,9 +101,9 @@ $.widget('nmk.productSlider', {
     // Get "1" from "#slide-1", for example
     const position = $(el).attr('id').split('-').pop()
     this._deactivateNavElement(this.props.selected)
-    this._activateNavElement(position)
+    this._activateNavElement(position, event)
     // Restart the carousel timer with a bit more delay
-    this._startCarousel(2000)
+    this._startCarousel(this.options.delayOnClick)
   },
 
   _deactivateNavElement: function(position) {
@@ -111,8 +119,8 @@ $.widget('nmk.productSlider', {
       .fadeOut(this.options.animationTime)
   },
 
-  _activateNavElement: function(position) {
-    const before = this.props.selected
+  _activateNavElement: function(position, event = null) {
+    const before = this._get_selected_product()
     const animationTime = before === undefined ? 0 : this.options.animationTime
     // Highlight pressed navbar element
     this.props.sliderBar.find(`#slide-link-${position}`).addClass('active')
@@ -126,7 +134,7 @@ $.widget('nmk.productSlider', {
       .css('background-image', `url("${this.props.products[position].url}")`)
     // Update selected property and trigger onNavChanged event
     this.props.selected = position
-    this._trigger('onNavChanged', null, { before, current: this.props.selected })
+    this._trigger('onNavChanged', event, { before, current: this._get_selected_product() })
   },
 
   _createDiv: function(className) {
@@ -135,11 +143,14 @@ $.widget('nmk.productSlider', {
 
   _collectProducts: function() {
     this.props.products = []
-    this.element.find('.item').each((_, c) => {
-      const content = $(c).find('.content')
-      const url = $(c).find('img').attr('src')
-      const description = $(c).find('span.description').html()
-      this.props.products.push({ url, content, description })
+    this.element.find('> div').each((id, c) => {
+      let content = $(c).find('.content').first()
+      if (content.length === 0) {
+        content = $(c).find('img').first()
+      }
+      const url = $(c).find('img').first().attr('src')
+      const description = $(c).find('span').first().html()
+      this.props.products.push({ id, url, content, description })
     })
   },
 
