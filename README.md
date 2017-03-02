@@ -1,4 +1,4 @@
-js-product-slider
+product-slider
 -------
 
 [1]: <https://github.com/chaoste/product-slider>
