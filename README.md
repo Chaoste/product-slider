@@ -1,4 +1,4 @@
-js-product-slider
+product-slider
 -------
 
 [1]: <https://github.com/chaoste/product-slider>
@@ -158,6 +158,25 @@ $('#my-slider').productSlider({
 
 Product-slider works on IE8+ in addition to other modern browsers such as Chrome, Firefox, and Safari.
 
+#### Node.js
+
+You may want to use this module within a Node.js environment. You can find a tutorial on how to use jQuery in Node.js [here](http://quaintous.com/2015/07/31/jqery-node-mystery/).
+
+```javascript
+var jsdom = require('jsdom')
+
+jsdom.env(
+ 'https://chaoste.github.io',
+ function (err, window) {
+   jQuery = require('jquery')(window)
+   require('jquery-ui')
+   require('product-slider')
+   // --- your code ---
+ }
+)
+```
+
+
 #### Dependencies
 
 jQuery >= 3.1.1
@@ -174,6 +193,4 @@ Licensed under the MIT license.
 ### Memo to myself
 
 Next steps after the first version is developed:
-1. Offer a minified version (http://javascript-minifier.com/, http://cssminifier.com/)
 2. Publish at plugins.jquery.com and npmjs.com (node and bower module)
-3. Use CDN (e.g. cdnjs, jsDelivr)
