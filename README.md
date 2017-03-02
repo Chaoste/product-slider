@@ -11,17 +11,16 @@ _A smooth lightweight slider for presenting products_
 
 #### CDN
 
-To start working with product-slider right away, there's a couple of CDN choices available
+To start working with product-slider right away, there's a a CDN available
 to serve the files as close, and fast as possible to your users:
 
-- https://cdnjs.com/libraries/product-slider
 - https://www.jsdelivr.com/projects/jquery.product-slider
 
 You can also download the code with the following link:
 
 - https://github.com/chaoste/product-slider/archive/master.zip
 
-##### Example using jsDelivr
+##### Example
 
 Just add a link to the css file in your `<head>`
 
