@@ -1,0 +1,29 @@
+{
+  "name": "product-slider",
+  "version": "0.1.0",
+  "description": "A smooth lightweight responsive slider for presenting products",
+  "dependencies": {
+    "uglify-js": "git+https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglifycss": "0.0.25"
+  },
+  "scripts": {
+    "build": "npm run minify-js && npm run minify-css",
+    "minify-js": "uglifyjs -c -m -o product-slider/product-slider.min.js product-slider/product-slider.js",
+    "minify-css": "uglifycss product-slider/product-slider.css > product-slider/product-slider.min.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chaoste/product-slider.git"
+  },
+  "keywords": [
+    "javascript",
+    "jquery-plugin",
+    "slider"
+  ],
+  "author": "Thomas Kellermeier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Chaoste/product-slider/issues"
+  },
+  "homepage": "https://chaoste.github.io/product-slider"
+}
