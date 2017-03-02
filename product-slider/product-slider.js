@@ -163,10 +163,10 @@ $.widget('nmk.productSlider', {
         description = descElem.html()
       } else if (contentElem.prop('tagName') === 'A') {
         const link = contentElem.attr('href')
-        const text = imgElem.attr('src').replace(/(.*)\/(.*?)\.(.*?)$/, '$2')
+        const text = imgElem.attr('src').replace(/(.*)\/(.*)\.(.*?)$/, '$2')
         description = `<a href="${link}">${text}</a>`
       } else {
-        description = imgElem.attr('src').replace(/(.*)\/(.*?)\.(.*?)$/, '$2')
+        description = imgElem.attr('src').replace(/(.*)\/(.*)\.(.*?)$/, '$2')
       }
       this.props.products.push({ id, url, content: contentElem, description })
     })
