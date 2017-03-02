@@ -8,6 +8,7 @@
   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
   <!-- CSS scripts -->
   <link href="lib/bootstrap-v4-alpha.min.css" rel="stylesheet">
+  <link href="lib/prism.css" rel="stylesheet">
   <link rel="stylesheet" href="demo.css" />
   <link rel="stylesheet" href="product-slider/product-slider.css" />
   <!-- Bootstrap Design Template http://v4-alpha.getbootstrap.com/examples/carousel/-->
@@ -63,28 +64,26 @@
   <div id="docs">
     <div class="container">
       <h3>Documentation</h3>
-      HTML Code of the example above
+      Code of the example above
       <div class="code-snippet">
-        <pre class="language-markup">
-          <code>
-            <div class="product-slider">
-              <div>
-                <img src="images/Elvis Presley - Elvis Presley.jpg"></img>
-              </div>
-              <div>
-                <img src="images/Jimi Hendrix - Experience Hendrix.jpg"></img>
-              </div>
-              <div>
-                <img src="images/The Beatles - Sgt. Pepper's Lonely Hearts Club Band.jpg"></img>
-              </div>
-              <div>
-                <img src="images/The Doors - The Doors.jpg"></img>
-              </div>
-            </div>
-          </code>
-        <pre class="language-markup">
+        <pre class="language-markup"><code>&lt;div class="product-slider">
+  &lt;div>
+    &lt;img src="images/Elvis Presley - Elvis Presley.jpg">&lt;/img>
+  &lt;/div>
+  &lt;div>
+    &lt;img src="images/Jimi Hendrix - Experience Hendrix.jpg">&lt;/img>
+  &lt;/div>
+  &lt;div>
+    &lt;img src="images/The Beatles - Sgt. Pepper's Lonely Hearts Club Band.jpg">&lt;/img>
+  &lt;/div>
+  &lt;div>
+    &lt;img src="images/The Doors - The Doors.jpg">&lt;/img>
+  &lt;/div>
+&lt;/div>
+&lt;!-- ... -->
+&lt;script>$('.product-slider').productSlider()&lt;/script></code></pre>
       </div>
-      
+
       <div style="height: 1000px"></div>
       Lorem ipsum
     </div>
@@ -94,6 +93,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="lib/prism.js"></script>
   <script src="product-slider/product-slider.js"></script>
   <script>$('.product-slider').productSlider()</script>
 </body>
