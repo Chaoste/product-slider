@@ -42,7 +42,8 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
       animationTime: 400,  // [ms]
       autoplay: 3000,  // [ms]
       stopOnMouseHover: true,
-      delayOnClick: 2000,
+      delayOnClick: 2000,  // [ms]
+      zIndex: 20,
     },
     // Intern used variables
     props: {
@@ -206,14 +207,17 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
       const transitionTime = (this.options.animationTime / 1000).toFixed(2)
       this.props.sliderBackground = this._createDiv('slider-background')
         .cssTransition(`background-image ${transitionTime}s ease-out`)
+        .css('z-index', this.options.zIndex)
       const slider = this._createDiv('slider')
         .css('width', this.options.slideWidth)
+        .css('z-index', this.options.zIndex + 1)
       this.props.products.forEach((productInfo, i) => {
         const slide = this._createDiv('slide').attr('id', `slide-${i}`)
         // const img = $(document.createElement('img')).attr('src', productInfo.url)
         const description = $(document.createElement('span'))
           .attr('id', `slide-description-${i}`)
           .addClass('description')
+          .css('z-index', this.options.zIndex + 1)
           .html(productInfo.description)
         // Add the description to the container, to enable a position outside of the slide
         this.props.sliderContainer.append(description)

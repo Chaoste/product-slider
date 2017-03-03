@@ -119,6 +119,7 @@ animationTime | int [ms] | 400 | Transition time for almost all css changes
 autoplay | int [ms] | 3000 | Waiting time until the next slide is shown (value <= 0 -> Disable autoplay)
 stopOnMouseHover | boolean | true | If the mouse is on the upper container the carousel stops
 delayOnClick | int [ms] | 2000 | After manually selecting a product wait an additional time, until the carousel goes on
+zIndex | int | 10 | z-index attribute of the background (slide and description have zIndex + 1)
 
 ```javascript
 $('#my-slider').productSlider({
