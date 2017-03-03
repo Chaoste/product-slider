@@ -3,8 +3,7 @@ body {
 }
 
 .container {
-  padding-bottom: 1rem;
-  padding-top: 1rem;
+  padding: 1rem 0;
 }
 
 #preview {
@@ -18,8 +17,11 @@ body {
   padding-bottom: 3rem;
 }
 
-.code-snippet {
+#docs .container {
   width: 45rem;
-  max-width: 100%;
-  margin: 0 auto;
+}
+
+.code-snippet, .example {
+  width: 100%;
+  margin: 1rem auto 3rem;
 }
