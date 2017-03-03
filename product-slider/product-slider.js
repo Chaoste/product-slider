@@ -43,7 +43,7 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
       autoplay: 3000,  // [ms]
       stopOnMouseHover: true,
       delayOnClick: 2000,  // [ms]
-      zIndex: 20,
+      zIndex: 10,
     },
     // Intern used variables
     props: {
