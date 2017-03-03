@@ -57,6 +57,7 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
     },
 
     _create: function() {
+      this._hideInputElement()
       this._update()
       // Stop carousel as long as the mouse is on the slider (if option is enabled)
       this.props.sliderContainer.on('mouseenter', () => {
@@ -69,6 +70,10 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
           this._startCarousel()
         }
       })
+    },
+
+    _hideInputElement: function() {
+      this.element.hide()
     },
 
     _startCarousel: function(additionalDelay) {
