@@ -215,7 +215,9 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
           .attr('id', `slide-description-${i}`)
           .addClass('description')
           .html(productInfo.description)
-        slide.append(productInfo.content, description)
+        // Add the description to the container, to enable a position outside of the slide
+        this.props.sliderContainer.append(description)
+        slide.append(productInfo.content)
         slider.append(slide)
       })
       this.props.sliderContainer.append(this.props.sliderBackground)
@@ -228,7 +230,7 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
       const transitionTime = (this.options.animationTime / 1000).toFixed(2)
       const colSize = Math.floor(12 / this.props.products.length)
       this.props.products.forEach((productInfo, i) => {
-        const sliderInfo = this._createDiv(`slide-info col-${colSize}`).attr('id', i)
+        const sliderInfo = this._createDiv(`slide-info col-${colSize} col-xs-${colSize}`).attr('id', i)
         const aLink = $(document.createElement('a'))
           .attr('href', '#')
           .attr('id', `slide-link-${i}`)
