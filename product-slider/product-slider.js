@@ -240,7 +240,7 @@ Website: http://www.linkedin.com/in/thomas-kellermeier
       const colSize = Math.floor(12 / this.props.products.length)
       const colSizeMobile = Math.floor(24 / this.props.products.length)
       this.props.products.forEach((productInfo, i) => {
-        const sliderInfo = this._createDiv(`slide-info col-${colSize} col-sm-${colSize} col-xs-${colSizeMobile}`).attr('id', i)
+        const sliderInfo = this._createDiv(`slide-info col-${colSize} col-md-${colSize} col-xs-${colSizeMobile}`).attr('id', i)
         const aLink = $(document.createElement('a'))
           .attr('href', '#')
           .attr('id', `slide-link-${i}`)
