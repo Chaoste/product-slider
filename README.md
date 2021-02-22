@@ -25,7 +25,7 @@ You can also download the code with the following link:
 Just add a link to the css file in your `<head>`
 
 ```html
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.product-slider/0.1.0/product-slider.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/product-slider@0.1.0/product-slider/product-slider.min.css"/>
 ```
 
 Then, before your closing `<body>` tag add
@@ -33,7 +33,7 @@ Then, before your closing `<body>` tag add
 ```html
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.product-slider/0.1.0/product-slider.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/product-slider@0.1.0/product-slider/product-slider.min.js"></script>
 ```
 
 #### Package Managers
